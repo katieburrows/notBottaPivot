@@ -124,6 +124,7 @@ for (var i = 0; i < data.length; i++) {
     
     var image = $("<img>").addClass("col-md-2").attr({
         "src": image,
+        "id": image,
         "height": 175
     })
 
@@ -132,23 +133,30 @@ for (var i = 0; i < data.length; i++) {
 
 $(document).ready(function(){
     $("img").click(function(){
+        var imgURL = $(this).attr("id");
+        
+        for (var j = 0; j < data.length; j++) {
+            if(imgURL === data[j].image) {
+                $("#productName").text(data[j].name);
+                $("#imgDiv").empty();
+                $("#imgDiv").append($("<img>", {"src": data[j].image }));
+                $("#description").text(data[j].description);
+                $("#terms").text(data[j].terms);
+                $("#expiration").text("Expires: " + data[j].expiration);
+                
+            }
+        }
       $("#myModal").modal("show");
     });
 
 });
 
-    // $('#myModal').modal("toggle");
+//Use $(this) to grab the image and then put that image into the modal div.
+//get the data from the databse from that selection into the modal
+    //$(this) to get the value of the URL, 
+    //compare that URL with the one in the database
+    //spit that data into the modal
 
-
-// $(document).ready(function () {
-//     $("#pop").click(function () {
-//       $('#myModal').modal('show'); 
-//     });
-//   });
-
-//   $("#myModal").on("shown.bs.modal", function () {
-//     google.maps.event.trigger(map, "resize");
-// });
 
 
 //further dev--improve the user experience by changing the hover state to a pointer when hovering over images.
