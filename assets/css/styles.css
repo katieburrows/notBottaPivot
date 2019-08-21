@@ -24,11 +24,13 @@ h1 {
 
 .gallery {
     padding-bottom: 150px;
+    padding-left: 15px;
 }
 
 .col-md-2 {
-    height: 150px;
     margin: 39px;
+    background-color: #cbd0da;
+    border-radius: 5px;
 }
 
 
