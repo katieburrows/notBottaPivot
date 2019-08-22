@@ -140,9 +140,9 @@ $(document).ready(function(){
                 $("#productName").text(data[j].name);
                 $("#imgDiv").empty();
                 $("#imgDiv").append($("<img>", {"src": data[j].image, "height": 200, "width": 200}));
-                $("#description").text(data[j].description);
-                $("#terms").text(data[j].terms);
-                $("#expiration").text("Expires: " + data[j].expiration);
+                $("#description").append(data[j].description);
+                $("#terms").append(data[j].terms);
+                $("#expiration").append(data[j].expiration);
                 
             }
         }
