@@ -139,7 +139,7 @@ $(document).ready(function(){
             if(imgURL === data[j].image) {
                 $("#productName").text(data[j].name);
                 $("#imgDiv").empty();
-                $("#imgDiv").append($("<img>", {"src": data[j].image }));
+                $("#imgDiv").append($("<img>", {"src": data[j].image, "height": 200, "width": 200}));
                 $("#description").text(data[j].description);
                 $("#terms").text(data[j].terms);
                 $("#expiration").text("Expires: " + data[j].expiration);
@@ -150,13 +150,5 @@ $(document).ready(function(){
     });
 
 });
-
-//Use $(this) to grab the image and then put that image into the modal div.
-//get the data from the databse from that selection into the modal
-    //$(this) to get the value of the URL, 
-    //compare that URL with the one in the database
-    //spit that data into the modal
-
-
 
 //further dev--improve the user experience by changing the hover state to a pointer when hovering over images.

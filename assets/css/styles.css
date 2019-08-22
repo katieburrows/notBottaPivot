@@ -33,7 +33,11 @@ h1 {
     border-radius: 5px;
 }
 
-
+#imgDiv {
+    margin: 0 auto;
+    margin-bottom: 45px;
+    width: 201px;
+}
 
 #stickyFooter {
     background-color: #1C6F6B;
