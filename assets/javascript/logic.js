@@ -1,3 +1,4 @@
+//This is my "database" that I've turned into an array of objects with all the information about 16 products.
 var data = [
     {
         name: "Crystal Light Liquid",
@@ -114,11 +115,14 @@ var data = [
     }
 ];
 
+//A for loop to go through the database array and spit the 16 images onto the page.
 for (var i = 0; i < data.length; i++) {
     var name = data[i].name;
     var image = data[i].image;
 
-    var image = $("<img>").addClass("col-md-2").attr({
+    //Creating an image element and adding the Bootstrap class of "col-md-2" to get that styling on each element being created.  I'm also setting src equal to the image's URL.  I chose to set the id of each image as it's URL so that I can easily hook onto that unique information to use in the modal.  
+    var image = $("<img>").attr({
+        "class": "col-md-2",
         "src": image,
         "id": image,
         "height": 175
@@ -127,24 +131,32 @@ for (var i = 0; i < data.length; i++) {
     $(".gallery").append(image);
 }
 
+//The function that shows the modal once an image is clicked on.
 $(document).ready(function () {
     $("img").click(function () {
+
+        //As mentioned on line 123 I used the image's URL as it's id, here I'm grabbing the URL and putting it into a variable.
         var imgURL = $(this).attr("id");
 
-        for (var j = 0; j < data.length; j++) {
-            if (imgURL === data[j].image) {
-                $("#productName").text(data[j].name);
+        //Another for loop that goes through the "database" array and compares the id from the image that was clicked on with the data.  If there's a match then the data pertaining to that index is accessed with dot notation and prepared to be put into the modal.
+        for (var i = 0; i < data.length; i++) {
+            if (imgURL === data[i].image) {
+                $("#productName").text(data[i].name);
+
+                //I'm clearing out the div that holds the images in the modal so that extra unrelated images aren't appended to the div.
                 $("#imgDiv").empty();
-                $("#imgDiv").append($("<img>", { "src": data[j].image, "height": 200, "width": 200 }));
-                $("#description").append(data[j].description);
-                $("#terms").append(data[j].terms);
-                $("#expiration").append(data[j].expiration);
+                $("#imgDiv").append($("<img>", { "src": data[i].image, "height": 200, "width": 200 }));
+                $("#description").append(data[i].description);
+                $("#terms").append(data[i].terms);
+                $("#expiration").append(data[i].expiration);
             }
         }
+        //The code that kicks off the modal.
         $("#myModal").modal("show");
     });
 });
 
+//An alert will pop up when the search box is clicked on to notify the user that it isn't wired up.
 $(".form-control").on("click", function () {
     alert(`Nice to have functionality--this doesn't have it yet!`);
-})
+});
