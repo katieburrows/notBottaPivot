@@ -2,14 +2,14 @@
 
 Welcome to my Ibotta coding challenge!  
 
-This is my wireframe of the landing page.
+Landing page wireframe:
 ![Landing page overview](assets/images/index.jpeg)
 
-This is my modal wireframe:
+Modal wireframe:
 ![Modal overview](assets/images/modal.jpeg)
 
-This is how I envisioned the workflow of the app.
-![Functionality overview](assets/images/modal.jpeg)
+Workflow:
+![Functionality overview](assets/images/pageFlow.jpeg)
 
 ### My First Attempt
 In my first attempt I used a MySQL database and a node server.  I tried using browserify to keep my node server but I was unsuccessful. After struggling to get my frontend and backend JavaScript to communicate I decided to switch to an express server so that I would have access to res.json, res.send, and other response methods to get the two ends talking.  My end goal was to get each product's name and image to the browser.  When an image was clicked on a modal would pop up with the product's name, image, description, terms, and offer expiration date.  My nice-to-have was a search bar.
