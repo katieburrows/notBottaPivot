@@ -42,7 +42,6 @@ var data = [
         image: "http://s3.amazonaws.com/ibotta-product/offer/5cdJiTJasOrEjIKnfElt5w-large.png",
         expiration: "2016-03-27 06:59:00 UTC"
     },
-
     {
         name: "Healthy Choice® Baked Entrees",
         description: "Any variety - Any size. Offer only redeemable at Target",
@@ -68,7 +67,7 @@ var data = [
         name: "Organic Peace Cereal®",
         description: "Any Organic Variety - 11 oz. or Larger. Offer only redeemable at Whole Foods",
         terms: "Offer valid on Organic Peace Cereal®  for any organic variety, in any 11 oz. or larger. Offer only redeemable at Whole Foods.",
-        image: "http://s3.amazonaws.com/ibotta-product/offer/oq3cCAbBocK52uwaWPiv8g-large.png", 
+        image: "http://s3.amazonaws.com/ibotta-product/offer/oq3cCAbBocK52uwaWPiv8g-large.png",
         expiration: "2016-04-03 06:59:00 UTC"
     },
     {
@@ -113,15 +112,12 @@ var data = [
         image: "http://s3.amazonaws.com/ibotta-product/offer/3W5QuGzFWZq6e07FwHtdPA-large.png",
         expiration: "2016-02-07 06:59:00 UTC"
     }
-
 ];
-
-
 
 for (var i = 0; i < data.length; i++) {
     var name = data[i].name;
     var image = data[i].image;
-    
+
     var image = $("<img>").addClass("col-md-2").attr({
         "src": image,
         "id": image,
@@ -131,24 +127,24 @@ for (var i = 0; i < data.length; i++) {
     $(".gallery").append(image);
 }
 
-$(document).ready(function(){
-    $("img").click(function(){
+$(document).ready(function () {
+    $("img").click(function () {
         var imgURL = $(this).attr("id");
-        
+
         for (var j = 0; j < data.length; j++) {
-            if(imgURL === data[j].image) {
+            if (imgURL === data[j].image) {
                 $("#productName").text(data[j].name);
                 $("#imgDiv").empty();
-                $("#imgDiv").append($("<img>", {"src": data[j].image, "height": 200, "width": 200}));
+                $("#imgDiv").append($("<img>", { "src": data[j].image, "height": 200, "width": 200 }));
                 $("#description").append(data[j].description);
                 $("#terms").append(data[j].terms);
                 $("#expiration").append(data[j].expiration);
-                
             }
         }
-      $("#myModal").modal("show");
+        $("#myModal").modal("show");
     });
-
 });
 
-//further dev--improve the user experience by changing the hover state to a pointer when hovering over images.
+$(".form-control").on("click", function () {
+    alert(`Nice to have functionality--this doesn't have it yet!`);
+})
